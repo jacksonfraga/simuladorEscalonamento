@@ -20,9 +20,9 @@ Foi criado com intuito de exemplificar os algoritmos de escalonamento:
 
 Alunos
 -------------------------
-Jackson de Fraga
-Douglas Costa
-Bruno Monteiro
+- Jackson de Fraga
+- Douglas Costa
+- Bruno Monteiro
 
 Professora
 -------------------------

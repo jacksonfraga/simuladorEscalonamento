@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewProcessos = new System.Windows.Forms.DataGridView();
             this.buttonAddProcesso = new System.Windows.Forms.Button();
             this.textBoxInicio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,32 +35,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBoxRetorno = new System.Windows.Forms.ListBox();
             this.buttonSimular = new System.Windows.Forms.Button();
             this.buttonStepbyStep = new System.Windows.Forms.Button();
-            this.dataGridViewSimulacao = new System.Windows.Forms.DataGridView();
             this.labelPrioridade = new System.Windows.Forms.Label();
             this.textBoxPrioridade = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxQuantum = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessos)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dataGridViewSimulacao = new System.Windows.Forms.DataGridView();
+            this.listBoxRetorno = new System.Windows.Forms.ListBox();
+            this.dataGridViewProcessos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewProcessos
-            // 
-            this.dataGridViewProcessos.AllowUserToAddRows = false;
-            this.dataGridViewProcessos.AllowUserToDeleteRows = false;
-            this.dataGridViewProcessos.AllowUserToOrderColumns = true;
-            this.dataGridViewProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProcessos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewProcessos.Location = new System.Drawing.Point(12, 72);
-            this.dataGridViewProcessos.Name = "dataGridViewProcessos";
-            this.dataGridViewProcessos.ReadOnly = true;
-            this.dataGridViewProcessos.Size = new System.Drawing.Size(583, 134);
-            this.dataGridViewProcessos.TabIndex = 0;
             // 
             // buttonAddProcesso
             // 
@@ -124,20 +117,10 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Nome";
             // 
-            // listBoxRetorno
-            // 
-            this.listBoxRetorno.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxRetorno.FormattingEnabled = true;
-            this.listBoxRetorno.Location = new System.Drawing.Point(613, 72);
-            this.listBoxRetorno.Name = "listBoxRetorno";
-            this.listBoxRetorno.Size = new System.Drawing.Size(252, 134);
-            this.listBoxRetorno.TabIndex = 8;
-            // 
             // buttonSimular
             // 
             this.buttonSimular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSimular.Location = new System.Drawing.Point(790, 43);
+            this.buttonSimular.Location = new System.Drawing.Point(810, 43);
             this.buttonSimular.Name = "buttonSimular";
             this.buttonSimular.Size = new System.Drawing.Size(75, 23);
             this.buttonSimular.TabIndex = 9;
@@ -154,22 +137,6 @@
             this.buttonStepbyStep.Text = "Step-by-Step";
             this.buttonStepbyStep.UseVisualStyleBackColor = true;
             this.buttonStepbyStep.Click += new System.EventHandler(this.buttonStepbyStep_Click);
-            // 
-            // dataGridViewSimulacao
-            // 
-            this.dataGridViewSimulacao.AllowUserToAddRows = false;
-            this.dataGridViewSimulacao.AllowUserToDeleteRows = false;
-            this.dataGridViewSimulacao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSimulacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSimulacao.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewSimulacao.Location = new System.Drawing.Point(12, 237);
-            this.dataGridViewSimulacao.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridViewSimulacao.Name = "dataGridViewSimulacao";
-            this.dataGridViewSimulacao.ReadOnly = true;
-            this.dataGridViewSimulacao.Size = new System.Drawing.Size(853, 213);
-            this.dataGridViewSimulacao.TabIndex = 11;
             // 
             // labelPrioridade
             // 
@@ -227,21 +194,94 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Algoritmo";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(310, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Limpar Tudo";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 67);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.listBoxRetorno);
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridViewProcessos);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridViewSimulacao);
+            this.splitContainer1.Size = new System.Drawing.Size(897, 407);
+            this.splitContainer1.SplitterDistance = 162;
+            this.splitContainer1.TabIndex = 13;
+            // 
+            // dataGridViewSimulacao
+            // 
+            this.dataGridViewSimulacao.AllowUserToAddRows = false;
+            this.dataGridViewSimulacao.AllowUserToDeleteRows = false;
+            this.dataGridViewSimulacao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewSimulacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSimulacao.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewSimulacao.Location = new System.Drawing.Point(10, 0);
+            this.dataGridViewSimulacao.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridViewSimulacao.Name = "dataGridViewSimulacao";
+            this.dataGridViewSimulacao.ReadOnly = true;
+            this.dataGridViewSimulacao.Size = new System.Drawing.Size(875, 232);
+            this.dataGridViewSimulacao.TabIndex = 13;
+            // 
+            // listBoxRetorno
+            // 
+            this.listBoxRetorno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxRetorno.FormattingEnabled = true;
+            this.listBoxRetorno.Location = new System.Drawing.Point(613, 14);
+            this.listBoxRetorno.Name = "listBoxRetorno";
+            this.listBoxRetorno.Size = new System.Drawing.Size(272, 134);
+            this.listBoxRetorno.TabIndex = 10;
+            // 
+            // dataGridViewProcessos
+            // 
+            this.dataGridViewProcessos.AllowUserToAddRows = false;
+            this.dataGridViewProcessos.AllowUserToDeleteRows = false;
+            this.dataGridViewProcessos.AllowUserToOrderColumns = true;
+            this.dataGridViewProcessos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProcessos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewProcessos.Location = new System.Drawing.Point(12, 14);
+            this.dataGridViewProcessos.Name = "dataGridViewProcessos";
+            this.dataGridViewProcessos.ReadOnly = true;
+            this.dataGridViewProcessos.Size = new System.Drawing.Size(583, 138);
+            this.dataGridViewProcessos.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 462);
+            this.ClientSize = new System.Drawing.Size(897, 475);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxQuantum);
             this.Controls.Add(this.labelPrioridade);
             this.Controls.Add(this.textBoxPrioridade);
-            this.Controls.Add(this.dataGridViewSimulacao);
             this.Controls.Add(this.buttonStepbyStep);
             this.Controls.Add(this.buttonSimular);
-            this.Controls.Add(this.listBoxRetorno);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.label2);
@@ -249,12 +289,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxInicio);
             this.Controls.Add(this.buttonAddProcesso);
-            this.Controls.Add(this.dataGridViewProcessos);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Simulador de Algoritmos de Escalonamento";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessos)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,7 +305,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewProcessos;
         private System.Windows.Forms.Button buttonAddProcesso;
         private System.Windows.Forms.TextBox textBoxInicio;
         private System.Windows.Forms.Label label1;
@@ -270,16 +312,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBoxRetorno;
         private System.Windows.Forms.Button buttonSimular;
         private System.Windows.Forms.Button buttonStepbyStep;
-        private System.Windows.Forms.DataGridView dataGridViewSimulacao;
         private System.Windows.Forms.Label labelPrioridade;
         private System.Windows.Forms.TextBox textBoxPrioridade;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxQuantum;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ListBox listBoxRetorno;
+        private System.Windows.Forms.DataGridView dataGridViewProcessos;
+        private System.Windows.Forms.DataGridView dataGridViewSimulacao;
     }
 }
 

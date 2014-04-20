@@ -119,5 +119,10 @@ namespace SimuladorEscalonamento.Core
             PIDAtual = 0;
             Tempo = 0;
         }
+
+        public void LimparProcessos()
+        {
+            processos.Clear();
+        }
     }
 }

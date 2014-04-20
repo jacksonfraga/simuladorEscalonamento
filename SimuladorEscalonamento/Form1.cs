@@ -13,7 +13,8 @@ namespace SimuladorEscalonamento
 {
     public partial class Form1 : Form
     {
-        private Algoritmo algoritmo;        
+        private Algoritmo algoritmo;
+        private Random random = new Random(1);
 
         public Form1()
         {
@@ -24,11 +25,13 @@ namespace SimuladorEscalonamento
         {
             algoritmo = new AlgoritmoFIFO();
 
+            comboBox1.SelectedIndex = 0;
+
             #region Dados Exemplo
-            algoritmo.CriaProcesso(0, 13, "A", 1);
-            algoritmo.CriaProcesso(2, 14, "B", 1);
-            algoritmo.CriaProcesso(3, 12, "C", 1);
-            algoritmo.CriaProcesso(4, 12, "D", 1);
+            algoritmo.CriaProcesso(0, 4, "A", 1);
+            algoritmo.CriaProcesso(2, 4, "B", 1);
+            algoritmo.CriaProcesso(3, 4, "C", 1);
+            algoritmo.CriaProcesso(4, 4, "D", 1);
             #endregion
 
             var bindList = new BindingList<Processo>(algoritmo.Processos);
@@ -38,18 +41,31 @@ namespace SimuladorEscalonamento
 
         private void buttonAddProcesso_Click(object sender, EventArgs e)
         {
-            int inico = int.Parse(textBoxInicio.Text);
+            int inicio = int.Parse(textBoxInicio.Text);
             int duracao = int.Parse(textBoxDuracao.Text);
             int prioridade = int.Parse(textBoxPrioridade.Text);
             string nome = textBoxNome.Text;
 
-            algoritmo.CriaProcesso(inico, duracao, nome, prioridade);
+            algoritmo.CriaProcesso(inicio, duracao, nome, prioridade);
 
             var bindList = new BindingList<Processo>(algoritmo.Processos);
             dataGridViewProcessos.DataSource = bindList;
+
+            if (nome.Length == 1)
+            {
+                int chr = Char.ConvertToUtf32(nome, 0);
+                
+                textBoxNome.Text = Char.ConvertFromUtf32(++chr);
+                
+                textBoxDuracao.Text = random.Next(10).ToString();
+                                
+                inicio += random.Next(3);
+                textBoxInicio.Text =  inicio.ToString();
+            }
+            
         }
 
-        private void buttonSimular_Click(object sender, EventArgs e)
+        private void Preparar()
         {
             listBoxRetorno.Items.Clear();
             algoritmo.Reiniciar();
@@ -61,7 +77,9 @@ namespace SimuladorEscalonamento
 
             dataGridViewSimulacao.Columns.Clear();
             dataGridViewSimulacao.Columns.Add("PID", "PID");
+            dataGridViewSimulacao.Columns["PID"].Width = 30;
             dataGridViewSimulacao.Columns.Add("Processo", "Processo");
+            dataGridViewSimulacao.Columns["Processo"].Width = 60;
 
             for (int i = 0; i < algoritmo.Processos.Count; i++)
             {
@@ -70,76 +88,77 @@ namespace SimuladorEscalonamento
                 dataGridViewSimulacao.Rows[i].Cells["PID"].Value = algoritmo.Processos[i].PID;
                 dataGridViewSimulacao.Rows[i].Cells["Processo"].Value = algoritmo.Processos[i].Nome;
             }
+        }
+
+        private void buttonSimular_Click(object sender, EventArgs e)
+        {
+
+            Preparar();
 
             do
             {
-                
-
-                listBoxRetorno.Items.Add(String.Format("---------- TEMPO {0} ----------", algoritmo.Tempo));
-
-                string columnName = "T" + algoritmo.Tempo.ToString();
-
-                dataGridViewSimulacao.Columns.Add(columnName, columnName);//, "T" + algoritmo.Tempo.ToString());
-                dataGridViewSimulacao.Columns[columnName].Width = 25;
-
-                algoritmo.ProximoTempo();
-
-
-                foreach (DataGridViewRow item in dataGridViewSimulacao.Rows)
-                {
-                    if (item.Cells["PID"].Value != null)
-                    {
-                        int pid = Int32.Parse(item.Cells["PID"].Value.ToString());
-
-                        if (algoritmo.FilaEspera.Contains(pid))
-                            item.Cells[columnName].Style.BackColor = Color.Yellow;
-
-                        if (algoritmo.PIDAtual.Equals(pid))
-                            item.Cells[columnName].Style.BackColor = Color.Blue;
-                    }  
-                }
-
-
-
-
-                listBoxRetorno.Items.Add(String.Format("Fila: {0}", String.Join(", ", algoritmo.FilaEspera)));
-                listBoxRetorno.Items.Add(String.Format("Executando: {0}", String.Join(", ", algoritmo.PIDAtual)));
-
-
+                ExecutarPasso();
             } while (algoritmo.Pendente());
 
 
             listBoxRetorno.Items.Add("-------------------------------");
             listBoxRetorno.Items.Add("          Finalizado");
             listBoxRetorno.Items.Add("-------------------------------");
+            MessageBox.Show("Finalizado", "Simulador", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            listBoxRetorno.SelectedIndex = listBoxRetorno.Items.Count - 1;
+            listBoxRetorno.SelectedIndex = -1;
 
         }
 
-        private void buttonStepbyStep_Click(object sender, EventArgs e)
+        private void ExecutarPasso()
         {
-            if (!algoritmo.Pendente())
-            {
-                listBoxRetorno.Items.Clear();
-                algoritmo.Reiniciar();
-                algoritmo.Quantum = Int32.Parse(textBoxQuantum.Text);
-
-                listBoxRetorno.Items.Add(String.Format("Iniciado {0}", DateTime.Now));
-            }
-
             listBoxRetorno.Items.Add(String.Format("---------- TEMPO {0} ----------", algoritmo.Tempo));
+
+            string columnName = "T" + algoritmo.Tempo.ToString();
+
+            dataGridViewSimulacao.Columns.Add(columnName, columnName);//, "T" + algoritmo.Tempo.ToString());
+            dataGridViewSimulacao.Columns[columnName].Width = 30;
 
             algoritmo.ProximoTempo();
 
 
+            foreach (DataGridViewRow item in dataGridViewSimulacao.Rows)
+            {
+                if (item.Cells["PID"].Value != null)
+                {
+                    int pid = Int32.Parse(item.Cells["PID"].Value.ToString());
+
+                    if (algoritmo.FilaEspera.Contains(pid))
+                        item.Cells[columnName].Style.BackColor = Color.Yellow;
+
+                    if (algoritmo.PIDAtual.Equals(pid))
+                        item.Cells[columnName].Style.BackColor = Color.Blue;
+                }
+            }
+
+
+
+
             listBoxRetorno.Items.Add(String.Format("Fila: {0}", String.Join(", ", algoritmo.FilaEspera)));
             listBoxRetorno.Items.Add(String.Format("Executando: {0}", String.Join(", ", algoritmo.PIDAtual)));
+        }
+
+        private void buttonStepbyStep_Click(object sender, EventArgs e)
+        {
+            if (!algoritmo.Pendente() || algoritmo.Tempo == 0)
+            {
+                Preparar();
+            }
+
+            ExecutarPasso();
 
             if (!algoritmo.Pendente())
             {
                 listBoxRetorno.Items.Add("-------------------------------");
                 listBoxRetorno.Items.Add("          Finalizado");
                 listBoxRetorno.Items.Add("-------------------------------");
+                MessageBox.Show("Finalizado", "Simulador", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             listBoxRetorno.SelectedIndex = listBoxRetorno.Items.Count - 1;
@@ -153,7 +172,7 @@ namespace SimuladorEscalonamento
             labelPrioridade.Visible = comboBox1.SelectedIndex != 0;
             textBoxPrioridade.Visible = comboBox1.SelectedIndex != 0;
 
-            var tempProcessos  = algoritmo.Processos;
+            var tempProcessos = algoritmo.Processos;
 
             switch (comboBox1.SelectedIndex)
             {
@@ -169,8 +188,23 @@ namespace SimuladorEscalonamento
 
             foreach (var item in tempProcessos)
             {
-                algoritmo.CriaProcesso(item.Inicio, item.Duracao, item.Nome, item.Prioridade);  
+                algoritmo.CriaProcesso(item.Inicio, item.Duracao, item.Nome, item.Prioridade);
             }
+
+            var bindList = new BindingList<Processo>(algoritmo.Processos);
+            dataGridViewProcessos.DataSource = bindList;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            algoritmo.LimparProcessos();
+            var bindList = new BindingList<Processo>(algoritmo.Processos);
+            dataGridViewProcessos.DataSource = bindList;
+            textBoxNome.Text = "A";
+            textBoxInicio.Text = "0";            
+            textBoxDuracao.Text = random.Next(10).ToString();
+            dataGridViewSimulacao.Rows.Clear();
+            dataGridViewSimulacao.Columns.Clear();
         }
 
     }

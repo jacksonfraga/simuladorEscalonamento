@@ -6,7 +6,7 @@ Este é um projeto de um Simulador de Algoritmos de Escalonamento desenvolvido e
 Foi criado com intuito de exemplificar os algoritmos de escalonamento:
 - First In/First Out (FIFO)
 - Round-Robin
-- 
+
 
 
 

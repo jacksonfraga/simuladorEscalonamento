@@ -1,12 +1,13 @@
-Simulador de Escalonamento
+﻿Simulador de Escalonamento
 ==========================
 
 Este é um projeto de um Simulador de Algoritmos de Escalonamento desenvolvido em C#.
 
 Foi criado com intuito de exemplificar os algoritmos de escalonamento:
-- First In/First Out (FIFO)
-- Round-Robin
-
+1. First In First Out (FIFO) [Implementado]
+2. Shortest Job First (SJF)
+3. Prioridades
+4. Round-Robin [Implementado]
 
 
 

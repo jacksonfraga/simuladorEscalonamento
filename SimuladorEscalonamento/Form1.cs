@@ -29,13 +29,23 @@ namespace SimuladorEscalonamento
 
             #region Dados Exemplo
             algoritmo.CriaProcesso(0, 4, "A", 1);
-            algoritmo.CriaProcesso(2, 4, "B", 1);
-            algoritmo.CriaProcesso(3, 4, "C", 1);
-            algoritmo.CriaProcesso(4, 4, "D", 1);
+            algoritmo.CriaProcesso(2, 5, "B", 1);
+            algoritmo.CriaProcesso(3, 2, "C", 1);
+            algoritmo.CriaProcesso(4, 5, "D", 1);
+            algoritmo.CriaProcesso(6, 7, "E", 1);
+            algoritmo.CriaProcesso(7, 6, "F", 1);
+            algoritmo.CriaProcesso(9, 5, "G", 1);
+            algoritmo.CriaProcesso(9, 2, "G", 1);
             #endregion
 
             var bindList = new BindingList<Processo>(algoritmo.Processos);
             dataGridViewProcessos.DataSource = bindList;
+
+            dataGridViewProcessos.Columns["PID"].Width = 35;
+            dataGridViewProcessos.Columns["Nome"].Width = 60;
+            dataGridViewProcessos.Columns["Inicio"].Width = 70;
+            dataGridViewProcessos.Columns["Duracao"].Width = 70;
+            dataGridViewProcessos.Columns["Prioridade"].Width = 70;
 
         }
 
@@ -137,11 +147,14 @@ namespace SimuladorEscalonamento
                 }
             }
 
-
-
+            var bindListEspera = new BindingList<int>(algoritmo.FilaEspera);            
+            listBoxFilaEspera.DataSource = bindListEspera;
+            var bindListProcesso = new BindingList<Processo>(algoritmo.Processos);
+            dataGridViewProcessos.DataSource = bindListProcesso;
 
             listBoxRetorno.Items.Add(String.Format("Fila: {0}", String.Join(", ", algoritmo.FilaEspera)));
             listBoxRetorno.Items.Add(String.Format("Executando: {0}", String.Join(", ", algoritmo.PIDAtual)));
+
         }
 
         private void buttonStepbyStep_Click(object sender, EventArgs e)
@@ -205,6 +218,16 @@ namespace SimuladorEscalonamento
             textBoxDuracao.Text = random.Next(10).ToString();
             dataGridViewSimulacao.Rows.Clear();
             dataGridViewSimulacao.Columns.Clear();
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

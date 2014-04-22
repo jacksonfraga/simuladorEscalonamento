@@ -45,22 +45,25 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridViewSimulacao = new System.Windows.Forms.DataGridView();
             this.listBoxRetorno = new System.Windows.Forms.ListBox();
             this.dataGridViewProcessos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewSimulacao = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.listBoxFilaEspera = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAddProcesso
             // 
-            this.buttonAddProcesso.Location = new System.Drawing.Point(229, 43);
+            this.buttonAddProcesso.Location = new System.Drawing.Point(218, 99);
             this.buttonAddProcesso.Name = "buttonAddProcesso";
-            this.buttonAddProcesso.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddProcesso.Size = new System.Drawing.Size(68, 23);
             this.buttonAddProcesso.TabIndex = 1;
             this.buttonAddProcesso.Text = "Add";
             this.buttonAddProcesso.UseVisualStyleBackColor = true;
@@ -68,7 +71,7 @@
             // 
             // textBoxInicio
             // 
-            this.textBoxInicio.Location = new System.Drawing.Point(12, 45);
+            this.textBoxInicio.Location = new System.Drawing.Point(10, 101);
             this.textBoxInicio.Name = "textBoxInicio";
             this.textBoxInicio.Size = new System.Drawing.Size(46, 20);
             this.textBoxInicio.TabIndex = 2;
@@ -77,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 29);
+            this.label1.Location = new System.Drawing.Point(10, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 3;
@@ -85,7 +88,7 @@
             // 
             // textBoxDuracao
             // 
-            this.textBoxDuracao.Location = new System.Drawing.Point(64, 45);
+            this.textBoxDuracao.Location = new System.Drawing.Point(62, 101);
             this.textBoxDuracao.Name = "textBoxDuracao";
             this.textBoxDuracao.Size = new System.Drawing.Size(46, 20);
             this.textBoxDuracao.TabIndex = 4;
@@ -94,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 29);
+            this.label2.Location = new System.Drawing.Point(60, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 5;
@@ -102,7 +105,7 @@
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(116, 45);
+            this.textBoxNome.Location = new System.Drawing.Point(114, 101);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(46, 20);
             this.textBoxNome.TabIndex = 6;
@@ -111,7 +114,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(116, 29);
+            this.label3.Location = new System.Drawing.Point(114, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 7;
@@ -119,8 +122,7 @@
             // 
             // buttonSimular
             // 
-            this.buttonSimular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSimular.Location = new System.Drawing.Point(810, 43);
+            this.buttonSimular.Location = new System.Drawing.Point(292, 24);
             this.buttonSimular.Name = "buttonSimular";
             this.buttonSimular.Size = new System.Drawing.Size(75, 23);
             this.buttonSimular.TabIndex = 9;
@@ -130,7 +132,7 @@
             // 
             // buttonStepbyStep
             // 
-            this.buttonStepbyStep.Location = new System.Drawing.Point(613, 43);
+            this.buttonStepbyStep.Location = new System.Drawing.Point(198, 24);
             this.buttonStepbyStep.Name = "buttonStepbyStep";
             this.buttonStepbyStep.Size = new System.Drawing.Size(88, 23);
             this.buttonStepbyStep.TabIndex = 10;
@@ -141,7 +143,7 @@
             // labelPrioridade
             // 
             this.labelPrioridade.AutoSize = true;
-            this.labelPrioridade.Location = new System.Drawing.Point(168, 29);
+            this.labelPrioridade.Location = new System.Drawing.Point(166, 85);
             this.labelPrioridade.Name = "labelPrioridade";
             this.labelPrioridade.Size = new System.Drawing.Size(54, 13);
             this.labelPrioridade.TabIndex = 13;
@@ -149,7 +151,7 @@
             // 
             // textBoxPrioridade
             // 
-            this.textBoxPrioridade.Location = new System.Drawing.Point(168, 45);
+            this.textBoxPrioridade.Location = new System.Drawing.Point(166, 101);
             this.textBoxPrioridade.Name = "textBoxPrioridade";
             this.textBoxPrioridade.Size = new System.Drawing.Size(46, 20);
             this.textBoxPrioridade.TabIndex = 12;
@@ -158,7 +160,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(720, 29);
+            this.label5.Location = new System.Drawing.Point(142, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 15;
@@ -166,7 +168,7 @@
             // 
             // textBoxQuantum
             // 
-            this.textBoxQuantum.Location = new System.Drawing.Point(720, 45);
+            this.textBoxQuantum.Location = new System.Drawing.Point(145, 26);
             this.textBoxQuantum.Name = "textBoxQuantum";
             this.textBoxQuantum.Size = new System.Drawing.Size(46, 20);
             this.textBoxQuantum.TabIndex = 14;
@@ -178,7 +180,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "FIFO",
             "Round-Robin"});
-            this.comboBox1.Location = new System.Drawing.Point(474, 44);
+            this.comboBox1.Location = new System.Drawing.Point(13, 26);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.Sorted = true;
@@ -188,7 +190,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(471, 28);
+            this.label6.Location = new System.Drawing.Point(10, 10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 17;
@@ -196,7 +198,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(310, 43);
+            this.button1.Location = new System.Drawing.Point(292, 99);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -209,21 +211,46 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 67);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 127);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.listBoxFilaEspera);
             this.splitContainer1.Panel1.Controls.Add(this.listBoxRetorno);
             this.splitContainer1.Panel1.Controls.Add(this.dataGridViewProcessos);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewSimulacao);
-            this.splitContainer1.Size = new System.Drawing.Size(897, 407);
-            this.splitContainer1.SplitterDistance = 162;
+            this.splitContainer1.Size = new System.Drawing.Size(897, 347);
+            this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.TabIndex = 13;
+            // 
+            // listBoxRetorno
+            // 
+            this.listBoxRetorno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxRetorno.FormattingEnabled = true;
+            this.listBoxRetorno.Location = new System.Drawing.Point(613, 14);
+            this.listBoxRetorno.Name = "listBoxRetorno";
+            this.listBoxRetorno.Size = new System.Drawing.Size(272, 121);
+            this.listBoxRetorno.TabIndex = 10;
+            // 
+            // dataGridViewProcessos
+            // 
+            this.dataGridViewProcessos.AllowUserToAddRows = false;
+            this.dataGridViewProcessos.AllowUserToOrderColumns = true;
+            this.dataGridViewProcessos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProcessos.Location = new System.Drawing.Point(12, 14);
+            this.dataGridViewProcessos.Name = "dataGridViewProcessos";
+            this.dataGridViewProcessos.Size = new System.Drawing.Size(469, 121);
+            this.dataGridViewProcessos.TabIndex = 9;
             // 
             // dataGridViewSimulacao
             // 
@@ -234,44 +261,42 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSimulacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSimulacao.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewSimulacao.Location = new System.Drawing.Point(10, 0);
+            this.dataGridViewSimulacao.Location = new System.Drawing.Point(10, 11);
             this.dataGridViewSimulacao.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.dataGridViewSimulacao.Name = "dataGridViewSimulacao";
             this.dataGridViewSimulacao.ReadOnly = true;
-            this.dataGridViewSimulacao.Size = new System.Drawing.Size(875, 232);
+            this.dataGridViewSimulacao.Size = new System.Drawing.Size(875, 181);
             this.dataGridViewSimulacao.TabIndex = 13;
             // 
-            // listBoxRetorno
+            // pictureBox1
             // 
-            this.listBoxRetorno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxRetorno.FormattingEnabled = true;
-            this.listBoxRetorno.Location = new System.Drawing.Point(613, 14);
-            this.listBoxRetorno.Name = "listBoxRetorno";
-            this.listBoxRetorno.Size = new System.Drawing.Size(272, 134);
-            this.listBoxRetorno.TabIndex = 10;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::SimuladorEscalonamento.Properties.Resources.senac_300x186;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(688, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(197, 121);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // dataGridViewProcessos
+            // listBoxFilaEspera
             // 
-            this.dataGridViewProcessos.AllowUserToAddRows = false;
-            this.dataGridViewProcessos.AllowUserToDeleteRows = false;
-            this.dataGridViewProcessos.AllowUserToOrderColumns = true;
-            this.dataGridViewProcessos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxFilaEspera.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dataGridViewProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProcessos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewProcessos.Location = new System.Drawing.Point(12, 14);
-            this.dataGridViewProcessos.Name = "dataGridViewProcessos";
-            this.dataGridViewProcessos.ReadOnly = true;
-            this.dataGridViewProcessos.Size = new System.Drawing.Size(583, 138);
-            this.dataGridViewProcessos.TabIndex = 9;
+            this.listBoxFilaEspera.FormattingEnabled = true;
+            this.listBoxFilaEspera.Location = new System.Drawing.Point(487, 14);
+            this.listBoxFilaEspera.Name = "listBoxFilaEspera";
+            this.listBoxFilaEspera.Size = new System.Drawing.Size(120, 121);
+            this.listBoxFilaEspera.TabIndex = 11;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 475);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
@@ -296,8 +321,9 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,6 +351,8 @@
         private System.Windows.Forms.ListBox listBoxRetorno;
         private System.Windows.Forms.DataGridView dataGridViewProcessos;
         private System.Windows.Forms.DataGridView dataGridViewSimulacao;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ListBox listBoxFilaEspera;
     }
 }
 

@@ -71,7 +71,7 @@ namespace SimuladorEscalonamento.Core
         }
 
         public void CriaProcesso(int inicio, int duracao, string nome, int prioridade)
-        {
+        {            
             if (inicio <= 0)
                 inicio = 0;
 
@@ -128,6 +128,7 @@ namespace SimuladorEscalonamento.Core
 
         public void LimparProcessos()
         {
+            Tempo = 0;
             processos.Clear();
         }
     }

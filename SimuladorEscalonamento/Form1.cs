@@ -146,9 +146,7 @@ namespace SimuladorEscalonamento
                         item.Cells[columnName].Style.BackColor = Color.Blue;
                 }
             }
-
-            var bindListEspera = new BindingList<int>(algoritmo.FilaEspera);            
-            listBoxFilaEspera.DataSource = bindListEspera;
+            
             var bindListProcesso = new BindingList<Processo>(algoritmo.Processos);
             dataGridViewProcessos.DataSource = bindListProcesso;
 

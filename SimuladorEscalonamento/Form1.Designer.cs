@@ -49,7 +49,6 @@
             this.dataGridViewProcessos = new System.Windows.Forms.DataGridView();
             this.dataGridViewSimulacao = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listBoxFilaEspera = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -217,7 +216,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listBoxFilaEspera);
             this.splitContainer1.Panel1.Controls.Add(this.listBoxRetorno);
             this.splitContainer1.Panel1.Controls.Add(this.dataGridViewProcessos);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
@@ -249,7 +247,7 @@
             this.dataGridViewProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProcessos.Location = new System.Drawing.Point(12, 14);
             this.dataGridViewProcessos.Name = "dataGridViewProcessos";
-            this.dataGridViewProcessos.Size = new System.Drawing.Size(469, 121);
+            this.dataGridViewProcessos.Size = new System.Drawing.Size(595, 121);
             this.dataGridViewProcessos.TabIndex = 9;
             // 
             // dataGridViewSimulacao
@@ -280,16 +278,6 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // listBoxFilaEspera
-            // 
-            this.listBoxFilaEspera.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBoxFilaEspera.FormattingEnabled = true;
-            this.listBoxFilaEspera.Location = new System.Drawing.Point(487, 14);
-            this.listBoxFilaEspera.Name = "listBoxFilaEspera";
-            this.listBoxFilaEspera.Size = new System.Drawing.Size(120, 121);
-            this.listBoxFilaEspera.TabIndex = 11;
             // 
             // Form1
             // 
@@ -352,7 +340,6 @@
         private System.Windows.Forms.DataGridView dataGridViewProcessos;
         private System.Windows.Forms.DataGridView dataGridViewSimulacao;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListBox listBoxFilaEspera;
     }
 }
 

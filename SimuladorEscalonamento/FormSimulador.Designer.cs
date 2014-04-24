@@ -178,6 +178,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "FIFO",
+            "Prioridade",
             "Round-Robin"});
             this.comboBox1.Location = new System.Drawing.Point(13, 26);
             this.comboBox1.Name = "comboBox1";
@@ -217,7 +218,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.listBoxRetorno);
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridViewProcessos);            
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridViewProcessos);
             // 
             // splitContainer1.Panel2
             // 
@@ -275,9 +276,9 @@
             this.pictureBox1.Size = new System.Drawing.Size(197, 121);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;           
+            this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // FormSimulador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,7 +301,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxInicio);
             this.Controls.Add(this.buttonAddProcesso);
-            this.Name = "Form1";
+            this.Name = "FormSimulador";
             this.Text = "Simulador de Algoritmos de Escalonamento";
             this.Load += new System.EventHandler(this.FormSimulador_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

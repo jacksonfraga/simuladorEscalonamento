@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Algoritmo.cs" />
     <Compile Include="AlgoritmoFIFO.cs" />
+    <Compile Include="AlgoritmoPrioridade.cs" />
     <Compile Include="AlgoritmoRoundRobin.cs" />
     <Compile Include="Processo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

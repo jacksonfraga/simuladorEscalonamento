@@ -28,14 +28,12 @@ namespace SimuladorEscalonamento
             comboBox1.SelectedIndex = 0;
 
             #region Dados Exemplo
-            algoritmo.CriaProcesso(0, 4, "A", 1);
-            algoritmo.CriaProcesso(2, 5, "B", 1);
-            algoritmo.CriaProcesso(3, 2, "C", 1);
-            algoritmo.CriaProcesso(4, 5, "D", 1);
-            algoritmo.CriaProcesso(6, 7, "E", 1);
-            algoritmo.CriaProcesso(7, 6, "F", 1);
-            algoritmo.CriaProcesso(9, 5, "G", 1);
-            algoritmo.CriaProcesso(9, 2, "H", 1);
+            algoritmo.CriaProcesso(0, 4, "A", 5);
+            algoritmo.CriaProcesso(2, 4, "B", 4);
+            algoritmo.CriaProcesso(2, 4, "C", 3);
+            algoritmo.CriaProcesso(4, 4, "D", 1);
+            algoritmo.CriaProcesso(4, 4, "E", 1);
+            algoritmo.CriaProcesso(6, 4, "F", 1);
             #endregion
 
             var bindList = new BindingList<Processo>(algoritmo.Processos);
@@ -190,9 +188,13 @@ namespace SimuladorEscalonamento
                 case 0: // FIFO
                     algoritmo = new AlgoritmoFIFO();
                     break;
-                case 1: // Round-Robin
+                case 1: // Prioridade
+                    algoritmo = new AlgoritmoPrioridade();
+                    break;
+                case 2: // Round-Robin
                     algoritmo = new AlgoritmoRoundRobin();
                     break;
+                
                 default:
                     break;
             }

@@ -10,11 +10,13 @@ namespace SimuladorEscalonamento.Core
     {
         public Algoritmo()
         {
+
             processos = new List<Processo>();
             filaEspera = new List<int>();
 
             Quantum = 1;
             Tempo = 0;
+
         }
 
         private List<Processo> processos;
@@ -27,11 +29,7 @@ namespace SimuladorEscalonamento.Core
         public int Quantum { get; set; }
         public int Tempo { get; set; }
 
-
-
         public abstract void ProximoTempo();
-
-
 
         protected void Executar()
         {
@@ -44,7 +42,7 @@ namespace SimuladorEscalonamento.Core
             Tempo++;
         }
 
-        protected int EmpilharFila()
+        protected int EmpilharFila(bool orderPrioridade = false)
         {
             if (PIDAtual > 0 && GetProcessoAtual().Terminado())
                 PIDAtual = 0;
@@ -52,6 +50,9 @@ namespace SimuladorEscalonamento.Core
 
             // busca todos os processos que iniciam "agora"
             List<Processo> processosEmpilhar = Processos.Where(p => p.Inicio.Equals(Tempo)).ToList();
+
+            if (orderPrioridade)
+                processosEmpilhar = processosEmpilhar.OrderBy(p => p.Prioridade).ToList();
 
             foreach (var item in processosEmpilhar)
             {
@@ -130,6 +131,11 @@ namespace SimuladorEscalonamento.Core
         {
             Tempo = 0;
             processos.Clear();
+        }
+
+        public Processo GetProcesso(int PID)
+        {
+            return Processos.FirstOrDefault(p => p.PID.Equals(PID));
         }
     }
 }

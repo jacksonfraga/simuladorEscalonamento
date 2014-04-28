@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SimuladorEscalonamento.Core
 {
-    public class AlgoritmoPrioridade : Algoritmo
+    public class AlgoritmoSJF : Algoritmo
     {
         public override void ProximoTempo()
         {
-            // aqui empilha processos na fila quando houver novos no tempo atual, tras o PID do próximo da fila (ordem por maior prioridade)
-            int pid = EmpilharFila(OrdemEspera.Prioridade);
+            // aqui empilha processos na fila quando houver novos no tempo atual, tras o PID do próximo da fila (ordem por duracao)
+            int pid = EmpilharFila(OrdemEspera.Duracao);
 
             // verifica se esta processando
             if (PIDAtual == 0)
@@ -27,28 +27,31 @@ namespace SimuladorEscalonamento.Core
             }
             else
             {
-                
                 // se já tiver processando: caso tenha fila de espera e tiver no Quantum
                 if ((FilaEspera.Count > 0) && (Tempo % Quantum == 0))
                 {
-                    int prioridade = GetProcessoAtual().Prioridade;
-
-                    // reduz a prioridade caso tenha outro processo
-                    prioridade--;
+                    Processo processoAtual  = GetProcessoAtual();
+                    Processo processoFila = GetProcesso(pid);
                     
-                    // verifica se o processo da fila possui maior prioridade
-                    if (prioridade < GetProcesso(pid).Prioridade)
+                    // calcula os tempos de execucao
+                    int duracaoAtual = processoAtual.Duracao - processoAtual.Processado;
+                    int duracaoFila = processoFila.Duracao - processoFila.Processado;
+                    
+                    // se o processo da fila for menor q o atual
+                    if (duracaoFila < duracaoAtual)
                     {
+                        // efetua a mudança de contexto (troca entre processos execução e um da fila)
                         int nextPID = pid;
                         RetirarFilaEspera(nextPID);
+                        // coloca no final da fila novamente
                         ColocarFilaEspera(PIDAtual);
                         PIDAtual = nextPID;
                     }
                 }
             }
 
-
-            Executar();
+            // executa o processo atual
+            Executar(); 
         }
     }
 }

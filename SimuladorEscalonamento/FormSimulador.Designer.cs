@@ -63,7 +63,7 @@
             this.buttonAddProcesso.Location = new System.Drawing.Point(218, 99);
             this.buttonAddProcesso.Name = "buttonAddProcesso";
             this.buttonAddProcesso.Size = new System.Drawing.Size(68, 23);
-            this.buttonAddProcesso.TabIndex = 1;
+            this.buttonAddProcesso.TabIndex = 8;
             this.buttonAddProcesso.Text = "Add";
             this.buttonAddProcesso.UseVisualStyleBackColor = true;
             this.buttonAddProcesso.Click += new System.EventHandler(this.buttonAddProcesso_Click);
@@ -73,7 +73,7 @@
             this.textBoxInicio.Location = new System.Drawing.Point(10, 101);
             this.textBoxInicio.Name = "textBoxInicio";
             this.textBoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.textBoxInicio.TabIndex = 2;
+            this.textBoxInicio.TabIndex = 4;
             this.textBoxInicio.Text = "0";
             // 
             // label1
@@ -90,7 +90,7 @@
             this.textBoxDuracao.Location = new System.Drawing.Point(62, 101);
             this.textBoxDuracao.Name = "textBoxDuracao";
             this.textBoxDuracao.Size = new System.Drawing.Size(46, 20);
-            this.textBoxDuracao.TabIndex = 4;
+            this.textBoxDuracao.TabIndex = 5;
             this.textBoxDuracao.Text = "10";
             // 
             // label2
@@ -121,20 +121,22 @@
             // 
             // buttonSimular
             // 
-            this.buttonSimular.Location = new System.Drawing.Point(292, 24);
+            this.buttonSimular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSimular.Location = new System.Drawing.Point(594, 98);
             this.buttonSimular.Name = "buttonSimular";
-            this.buttonSimular.Size = new System.Drawing.Size(75, 23);
-            this.buttonSimular.TabIndex = 9;
+            this.buttonSimular.Size = new System.Drawing.Size(88, 23);
+            this.buttonSimular.TabIndex = 3;
             this.buttonSimular.Text = "Simular";
             this.buttonSimular.UseVisualStyleBackColor = true;
             this.buttonSimular.Click += new System.EventHandler(this.buttonSimular_Click);
             // 
             // buttonStepbyStep
             // 
-            this.buttonStepbyStep.Location = new System.Drawing.Point(198, 24);
+            this.buttonStepbyStep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStepbyStep.Location = new System.Drawing.Point(594, 69);
             this.buttonStepbyStep.Name = "buttonStepbyStep";
             this.buttonStepbyStep.Size = new System.Drawing.Size(88, 23);
-            this.buttonStepbyStep.TabIndex = 10;
+            this.buttonStepbyStep.TabIndex = 2;
             this.buttonStepbyStep.Text = "Step-by-Step";
             this.buttonStepbyStep.UseVisualStyleBackColor = true;
             this.buttonStepbyStep.Click += new System.EventHandler(this.buttonStepbyStep_Click);
@@ -153,13 +155,13 @@
             this.textBoxPrioridade.Location = new System.Drawing.Point(166, 101);
             this.textBoxPrioridade.Name = "textBoxPrioridade";
             this.textBoxPrioridade.Size = new System.Drawing.Size(46, 20);
-            this.textBoxPrioridade.TabIndex = 12;
+            this.textBoxPrioridade.TabIndex = 7;
             this.textBoxPrioridade.Text = "1";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(142, 10);
+            this.label5.Location = new System.Drawing.Point(166, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 15;
@@ -167,24 +169,25 @@
             // 
             // textBoxQuantum
             // 
-            this.textBoxQuantum.Location = new System.Drawing.Point(145, 26);
+            this.textBoxQuantum.Location = new System.Drawing.Point(166, 26);
             this.textBoxQuantum.Name = "textBoxQuantum";
             this.textBoxQuantum.Size = new System.Drawing.Size(46, 20);
-            this.textBoxQuantum.TabIndex = 14;
+            this.textBoxQuantum.TabIndex = 1;
             this.textBoxQuantum.Text = "2";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "FIFO",
+            "FIFO (First In First Out)",
             "Prioridade",
-            "Round-Robin"});
-            this.comboBox1.Location = new System.Drawing.Point(13, 26);
+            "Round-Robin",
+            "SJF (Shortest Job First)"});
+            this.comboBox1.Location = new System.Drawing.Point(12, 26);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(148, 21);
             this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 16;
+            this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label6
@@ -193,7 +196,7 @@
             this.label6.Location = new System.Drawing.Point(10, 10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 13);
-            this.label6.TabIndex = 17;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Algoritmo";
             // 
             // button1
@@ -201,7 +204,7 @@
             this.button1.Location = new System.Drawing.Point(292, 99);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
+            this.button1.TabIndex = 9;
             this.button1.Text = "Limpar Tudo";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -233,10 +236,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxRetorno.FormattingEnabled = true;
-            this.listBoxRetorno.Location = new System.Drawing.Point(613, 14);
+            this.listBoxRetorno.Location = new System.Drawing.Point(594, 14);
             this.listBoxRetorno.Name = "listBoxRetorno";
-            this.listBoxRetorno.Size = new System.Drawing.Size(272, 121);
-            this.listBoxRetorno.TabIndex = 10;
+            this.listBoxRetorno.Size = new System.Drawing.Size(291, 121);
+            this.listBoxRetorno.TabIndex = 1;
             // 
             // dataGridViewProcessos
             // 
@@ -245,10 +248,10 @@
             this.dataGridViewProcessos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProcessos.Location = new System.Drawing.Point(12, 14);
+            this.dataGridViewProcessos.Location = new System.Drawing.Point(3, 14);
             this.dataGridViewProcessos.Name = "dataGridViewProcessos";
-            this.dataGridViewProcessos.Size = new System.Drawing.Size(595, 121);
-            this.dataGridViewProcessos.TabIndex = 9;
+            this.dataGridViewProcessos.Size = new System.Drawing.Size(585, 121);
+            this.dataGridViewProcessos.TabIndex = 0;
             // 
             // dataGridViewSimulacao
             // 
@@ -264,7 +267,7 @@
             this.dataGridViewSimulacao.Name = "dataGridViewSimulacao";
             this.dataGridViewSimulacao.ReadOnly = true;
             this.dataGridViewSimulacao.Size = new System.Drawing.Size(875, 181);
-            this.dataGridViewSimulacao.TabIndex = 13;
+            this.dataGridViewSimulacao.TabIndex = 0;
             // 
             // pictureBox1
             // 

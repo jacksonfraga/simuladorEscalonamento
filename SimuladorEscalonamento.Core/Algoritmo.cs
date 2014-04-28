@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace SimuladorEscalonamento.Core
 {
+    public enum OrdemEspera
+    {
+        Normal,
+        Prioridade,
+        Duracao
+    }
     public abstract class Algoritmo
     {
         public Algoritmo()
@@ -42,23 +48,25 @@ namespace SimuladorEscalonamento.Core
             Tempo++;
         }
 
-        protected int EmpilharFila(bool orderPrioridade = false)
+        protected int EmpilharFila(OrdemEspera ordemEspera = OrdemEspera.Normal)
         {
             if (PIDAtual > 0 && GetProcessoAtual().Terminado())
                 PIDAtual = 0;
 
 
             // busca todos os processos que iniciam "agora"
-            List<Processo> processosEmpilhar = Processos.Where(p => p.Inicio.Equals(Tempo)).ToList();
-
-            if (orderPrioridade)
-                processosEmpilhar = processosEmpilhar.OrderBy(p => p.Prioridade).ToList();
+            List<Processo> processosEmpilhar = Processos.Where(p => p.Inicio.Equals(Tempo)).ToList();            
 
             foreach (var item in processosEmpilhar)
             {
                 // adiciona os processos na fila
                 ColocarFilaEspera(item.PID);
             }
+
+            if (ordemEspera == OrdemEspera.Prioridade) // qdo for por prioridade ordena pelo maior prioridade
+                filaEspera = filaEspera.OrderByDescending(p => GetProcesso(p).Prioridade).ToList();
+            else if (ordemEspera == OrdemEspera.Duracao)// qdo for por Duracao, orderna os menores
+                filaEspera = filaEspera.OrderBy(p => GetProcesso(p).Duracao - GetProcesso(p).Processado).ToList();
 
             // sempre retorna o próximo processo a ser executado
             return FilaEspera.Count > 0 ? FilaEspera.ElementAt(0) : 0;

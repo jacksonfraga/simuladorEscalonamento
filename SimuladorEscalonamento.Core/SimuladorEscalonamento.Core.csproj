@@ -43,6 +43,7 @@
     <Compile Include="AlgoritmoFIFO.cs" />
     <Compile Include="AlgoritmoPrioridade.cs" />
     <Compile Include="AlgoritmoRoundRobin.cs" />
+    <Compile Include="AlgoritmoSJF.cs" />
     <Compile Include="Processo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

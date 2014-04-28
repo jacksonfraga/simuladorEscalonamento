@@ -18,7 +18,7 @@ namespace SimuladorEscalonamento
 
         public FormSimulador()
         {
-            InitializeComponent();                      
+            InitializeComponent();
         }
 
         private void FormSimulador_Load(object sender, EventArgs e)
@@ -27,13 +27,20 @@ namespace SimuladorEscalonamento
 
             comboBox1.SelectedIndex = 0;
 
-            #region Dados Exemplo
-            algoritmo.CriaProcesso(0, 4, "A", 5);
-            algoritmo.CriaProcesso(2, 4, "B", 4);
-            algoritmo.CriaProcesso(2, 4, "C", 3);
-            algoritmo.CriaProcesso(4, 4, "D", 1);
-            algoritmo.CriaProcesso(4, 4, "E", 1);
-            algoritmo.CriaProcesso(6, 4, "F", 1);
+            #region Dados Exemplo 1
+            //algoritmo.CriaProcesso(0, 4, "A", 5);
+            //algoritmo.CriaProcesso(2, 4, "B", 4);
+            //algoritmo.CriaProcesso(2, 4, "C", 3);
+            //algoritmo.CriaProcesso(4, 4, "D", 1);
+            //algoritmo.CriaProcesso(4, 4, "E", 1);
+            //algoritmo.CriaProcesso(6, 4, "F", 1);
+            #endregion
+
+            #region Dados Exemplo 2 (livro)
+            algoritmo.CriaProcesso(0, 5, "A", 2);
+            algoritmo.CriaProcesso(0, 2, "B", 3);
+            algoritmo.CriaProcesso(1, 4, "C", 1);
+            algoritmo.CriaProcesso(3, 3, "D", 4);
             #endregion
 
             var bindList = new BindingList<Processo>(algoritmo.Processos);
@@ -62,15 +69,15 @@ namespace SimuladorEscalonamento
             if (nome.Length == 1)
             {
                 int chr = Char.ConvertToUtf32(nome, 0);
-                
+
                 textBoxNome.Text = Char.ConvertFromUtf32(++chr);
-                
+
                 textBoxDuracao.Text = random.Next(10).ToString();
-                                
+
                 inicio += random.Next(3);
-                textBoxInicio.Text =  inicio.ToString();
+                textBoxInicio.Text = inicio.ToString();
             }
-            
+
         }
 
         private void Preparar()
@@ -89,12 +96,16 @@ namespace SimuladorEscalonamento
             dataGridViewSimulacao.Columns.Add("Processo", "Processo");
             dataGridViewSimulacao.Columns["Processo"].Width = 60;
 
-            for (int i = 0; i < algoritmo.Processos.Count; i++)
+            var temp = algoritmo.Processos.ToList();
+
+            temp.Reverse();
+
+            for (int i = 0; i < temp.Count; i++)
             {
 
                 dataGridViewSimulacao.Rows.Add();
-                dataGridViewSimulacao.Rows[i].Cells["PID"].Value = algoritmo.Processos[i].PID;
-                dataGridViewSimulacao.Rows[i].Cells["Processo"].Value = algoritmo.Processos[i].Nome;
+                dataGridViewSimulacao.Rows[i].Cells["PID"].Value = temp[i].PID;
+                dataGridViewSimulacao.Rows[i].Cells["Processo"].Value = temp[i].Nome;
             }
         }
 
@@ -138,13 +149,20 @@ namespace SimuladorEscalonamento
                     int pid = Int32.Parse(item.Cells["PID"].Value.ToString());
 
                     if (algoritmo.FilaEspera.Contains(pid))
+                    {
                         item.Cells[columnName].Style.BackColor = Color.Yellow;
+                        item.Cells[columnName].Value = algoritmo.GetProcesso(pid).Prioridade;
+                    }
 
                     if (algoritmo.PIDAtual.Equals(pid))
+                    {
                         item.Cells[columnName].Style.BackColor = Color.Blue;
+                        item.Cells[columnName].Value = algoritmo.GetProcesso(pid).Prioridade;
+                    }
+
                 }
             }
-            
+
             var bindListProcesso = new BindingList<Processo>(algoritmo.Processos);
             dataGridViewProcessos.DataSource = bindListProcesso;
 
@@ -178,8 +196,8 @@ namespace SimuladorEscalonamento
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            labelPrioridade.Visible = comboBox1.SelectedIndex != 0;
-            textBoxPrioridade.Visible = comboBox1.SelectedIndex != 0;
+            labelPrioridade.Visible = comboBox1.SelectedIndex == 1;
+            textBoxPrioridade.Visible = comboBox1.SelectedIndex == 1;
 
             var tempProcessos = algoritmo.Processos;
 
@@ -194,7 +212,10 @@ namespace SimuladorEscalonamento
                 case 2: // Round-Robin
                     algoritmo = new AlgoritmoRoundRobin();
                     break;
-                
+                case 3: // SJF
+                    algoritmo = new AlgoritmoSJF();
+                    break;
+
                 default:
                     break;
             }
@@ -214,7 +235,7 @@ namespace SimuladorEscalonamento
             var bindList = new BindingList<Processo>(algoritmo.Processos);
             dataGridViewProcessos.DataSource = bindList;
             textBoxNome.Text = "A";
-            textBoxInicio.Text = "0";            
+            textBoxInicio.Text = "0";
             textBoxDuracao.Text = random.Next(10).ToString();
             dataGridViewSimulacao.Rows.Clear();
             dataGridViewSimulacao.Columns.Clear();

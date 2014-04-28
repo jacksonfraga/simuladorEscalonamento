@@ -18,6 +18,9 @@ namespace SimuladorEscalonamento.Core
 
         public int Processado { get { return processado; } }
 
+        public int TempoExecucao { get; set; }
+        public int TempoEspera { get; set; }
+
         public void Processar()
         {
             processado++;
@@ -31,6 +34,8 @@ namespace SimuladorEscalonamento.Core
         public void Limpar()
         {
             processado = 0;
+            TempoEspera = 0;
+            TempoExecucao = 0;
         }
     }
 }

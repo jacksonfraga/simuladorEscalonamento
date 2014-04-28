@@ -123,6 +123,8 @@ namespace SimuladorEscalonamento
             listBoxRetorno.Items.Add("-------------------------------");
             listBoxRetorno.Items.Add("          Finalizado");
             listBoxRetorno.Items.Add("-------------------------------");
+            listBoxRetorno.Items.Add(String.Format("Tempo médio de execução: {0}", algoritmo.TempoMedioExecucao()));
+            listBoxRetorno.Items.Add(String.Format("Tempo médio de espera: {0}", algoritmo.TempoMedioEspera()));
             MessageBox.Show("Finalizado", "Simulador", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             listBoxRetorno.SelectedIndex = listBoxRetorno.Items.Count - 1;
@@ -185,6 +187,8 @@ namespace SimuladorEscalonamento
                 listBoxRetorno.Items.Add("-------------------------------");
                 listBoxRetorno.Items.Add("          Finalizado");
                 listBoxRetorno.Items.Add("-------------------------------");
+                listBoxRetorno.Items.Add(String.Format("Tempo médio de execução: {0}", algoritmo.TempoMedioExecucao()));
+                listBoxRetorno.Items.Add(String.Format("Tempo médio de espera: {0}", algoritmo.TempoMedioEspera()));
                 MessageBox.Show("Finalizado", "Simulador", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 

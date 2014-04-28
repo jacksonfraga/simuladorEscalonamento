@@ -39,13 +39,20 @@ namespace SimuladorEscalonamento.Core
 
         protected void Executar()
         {
+            Tempo++;
             Processo processo = GetProcessoAtual();
             if (processo != null)
             {
                 processo.Processar();
+                processo.TempoExecucao = Tempo - processo.Inicio;                
             }
 
-            Tempo++;
+            foreach (var item in Processos)
+            {
+                if (filaEspera.Contains(item.PID))
+                    item.TempoEspera++;
+            }
+
         }
 
         protected int EmpilharFila(OrdemEspera ordemEspera = OrdemEspera.Normal)
@@ -144,6 +151,30 @@ namespace SimuladorEscalonamento.Core
         public Processo GetProcesso(int PID)
         {
             return Processos.FirstOrDefault(p => p.PID.Equals(PID));
+        }
+
+        public double TempoMedioEspera()
+        {
+            double totalEspera = 0;
+
+            foreach (var item in Processos)
+            {
+                totalEspera += item.TempoEspera;
+            }
+
+            return totalEspera / Processos.Count;
+        }
+
+        public double TempoMedioExecucao()
+        {
+            double totalExecucao = 0;
+
+            foreach (var item in Processos)
+            {
+                totalExecucao += item.TempoExecucao;
+            }
+
+            return totalExecucao / Processos.Count;
         }
     }
 }
